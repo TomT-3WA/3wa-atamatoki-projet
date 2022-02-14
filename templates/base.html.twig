@@ -14,6 +14,28 @@
 		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
 	</head>
 	<body>
+	<header>
+		<div class="logo-and-tab">
+			<a href="/" class="logo"><img src="{{ asset('img/Soundcloud/aaPlan de travail 18 copie 8-100.jpg') }}" alt="Logo du Projet"></a>
+			{# <div class="header-tab">
+				{% if not app.user %}
+					<div class="non-authentificated">
+						<a href="{{ path('security_login') }}" class="sign-up login">Se Connecter</a>
+					</div>
+					<div class="non-authentificated">
+						<a href="{{ path('security_registration') }}" class="sign-up">S'inscrire</a>
+					</div>
+				{% else %}
+					<div class="authentificated">
+						<a href="{{ path('security_logout') }}" class="sign-up logout">Se Déconnecter</a>
+					</div>
+					<a href="/panier" class="cart">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+				{% endif %}
+			</div> #}
+		</div>
+	</header>
 		{% block body %}{% endblock %}
 	</body>
 </html>
