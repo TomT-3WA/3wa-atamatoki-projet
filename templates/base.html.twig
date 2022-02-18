@@ -16,7 +16,7 @@
 	<body>
 	<header>
 		<div class="logo-and-tab">
-			{# <a href="/" class="logo"><img src="{{ asset('img/Soundcloud/aaPlan de travail 18 copie 8-100.jpg') }}" alt="Logo du Projet"></a> #}
+			<a href="/" class="logo"><img src="{{ asset('img/banner-green.png') }}" alt="Logo du Projet"></a>
 			{# <div class="header-tab">
 				{% if not app.user %}
 					<div class="non-authentificated">
@@ -35,6 +35,15 @@
 				{% endif %}
 			</div> #}
 		</div>
+		<nav>
+			<a href="{{ path('home') }}" class="nav-home">Accueil</a>
+			<a href="{{ path('tracks') }}" class="nav-tracks">Tracks</a>
+			<a href="{{ path('atamatoki') }}" class="nav-ata">L'artiste</a>
+			<a href="{{ path('contact') }}" class="nav-contact">Nous Contacter</a>
+			{% if is_granted('ROLE_ADMIN') %}
+				<a href="{{ path('admin')}}" class="nav-admin">Page Admin</a>
+			{% endif %}
+		</nav>
 	</header>
 		{% block body %}{% endblock %}
 	</body>
