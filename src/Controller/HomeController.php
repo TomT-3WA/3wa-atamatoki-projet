@@ -22,6 +22,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'tracks' => $tracks,
+            'controller_name' => 'HomeController'
         ]);
     }
 
@@ -75,7 +76,7 @@ class HomeController extends AbstractController
         }
 
         return $this->render('home/contact.html.twig', [
-            'contactForm' => $form->createView()
+            'contactForm' => $form->createView(),
         ]);
     }
 }

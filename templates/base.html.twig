@@ -11,13 +11,14 @@
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.css' integrity='sha512-4wFGk961cJS2gpSfzy1vU+R8Q93foZOoGgfEDetiClOqNvggdtnRpdCsAgfm8VU9mKkv2unla8RBYwA6hoFwqg==' crossorigin='anonymous'/>
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css' integrity='sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==' crossorigin='anonymous'/>
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/base-style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
 	</head>
 	<body>
 	<header>
 		<div class="logo-and-tab">
 			<a href="/" class="logo"><img src="{{ asset('img/banner-green.png') }}" alt="Logo du Projet"></a>
-			{# <div class="header-tab">
+			<div class="header-tab">
 				{% if not app.user %}
 					<div class="non-authentificated">
 						<a href="{{ path('security_login') }}" class="sign-up login">Se Connecter</a>
@@ -29,11 +30,11 @@
 					<div class="authentificated">
 						<a href="{{ path('security_logout') }}" class="sign-up logout">Se Déconnecter</a>
 					</div>
-					<a href="/panier" class="cart">
+					{# <a href="/panier" class="cart">
 						<i class="fas fa-shopping-cart"></i>
-					</a>
+					</a> #}
 				{% endif %}
-			</div> #}
+			</div>
 		</div>
 		<nav>
 			<a href="{{ path('home') }}" class="nav-home">Accueil</a>
@@ -45,6 +46,63 @@
 			{% endif %}
 		</nav>
 	</header>
-		{% block body %}{% endblock %}
+		<div class="container">
+			{% block body %}{% endblock %}
+		</div>
+		<footer>
+			<div class="info">
+				<div class="info-details">
+					<i class="fab fa-paypal"></i>
+					<h3>Paiement Securisé</h3>
+					<p>Chaque paiement s'effectue de manière sécurisée par Paypal. Vos données resteront confidentielles.</p>
+				</div>
+				<div class="info-details">
+					<i class="fas fa-arrow-circle-down"></i>
+					<h3>Téléchargement Immédiat</h3>
+					<p>Une fois la licence achetée, un lien exclusif vous est délivré pour télécharger instantanément la production.</p>
+				</div>
+				<div class="info-details">
+					<i class="fa-solid fa-file-waveform"></i>
+					<h3>Instrumentales De Haute-Qualité</h3>
+					<p>Chaque instrumentale est délivrée avec la meilleure qualité de son et un mixage travaillé, idéal tant pour travailler en studio que chez soi.</p>
+				</div>
+			</div>
+			<div class="footer">
+				<a href="#" class="footer-logo"><img src="{{ asset('img/banner-green.png') }}"/></a>
+				<div class="footer-flex">
+					<div class="footer-contact">
+						<h4>Contact</h4>
+						<ul class="contact">
+							<li>Mail :
+								<a href="mailto:peperooniiprod@gmail.com">peperooniiprod@gmail.com</a>
+							</li>
+							<li>Téléphone :
+								<a href="tel:+33789616798">07 89 61 67 98</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-social">
+						<h4>Reseaux</h4>
+						<ul class="social-networks">
+							<li>
+								<a href="https://www.instagram.com/pepe_roonii/">
+									<i class="fab fa-instagram"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://soundcloud.com/mathis-chenut">
+									<i class="fab fa-soundcloud"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/mathis.chenut">
+									<i class="fab fa-facebook-f"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
