@@ -10,6 +10,9 @@
 		<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/ico">
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.css' integrity='sha512-4wFGk961cJS2gpSfzy1vU+R8Q93foZOoGgfEDetiClOqNvggdtnRpdCsAgfm8VU9mKkv2unla8RBYwA6hoFwqg==' crossorigin='anonymous'/>
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css' integrity='sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==' crossorigin='anonymous'/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/base-style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
@@ -37,12 +40,12 @@
 			</div>
 		</div>
 		<nav>
-			<a href="{{ path('home') }}" class="nav-home">Accueil</a>
-			<a href="{{ path('tracks') }}" class="nav-tracks">Tracks</a>
-			<a href="{{ path('atamatoki') }}" class="nav-ata">L'artiste</a>
-			<a href="{{ path('contact') }}" class="nav-contact">Nous Contacter</a>
+			<a href="{{ path('home') }}" class="nav-home nav-animated">Accueil</a>
+			<a href="{{ path('tracks') }}" class="nav-tracks nav-animated">Tracks</a>
+			<a href="{{ path('atamatoki') }}" class="nav-ata nav-animated">L'artiste</a>
+			<a href="{{ path('contact') }}" class="nav-contact nav-animated">Nous Contacter</a>
 			{% if is_granted('ROLE_ADMIN') %}
-				<a href="{{ path('admin')}}" class="nav-admin">Page Admin</a>
+				<a href="{{ path('admin')}}" class="nav-admin nav-animated">Page Admin</a>
 			{% endif %}
 		</nav>
 	</header>
@@ -50,7 +53,7 @@
 			{% block body %}{% endblock %}
 		</div>
 		<footer>
-			<div class="info">
+			{# <div class="info">
 				<div class="info-details">
 					<i class="fab fa-paypal"></i>
 					<h3>Paiement Securisé</h3>
@@ -66,18 +69,15 @@
 					<h3>Instrumentales De Haute-Qualité</h3>
 					<p>Chaque instrumentale est délivrée avec la meilleure qualité de son et un mixage travaillé, idéal tant pour travailler en studio que chez soi.</p>
 				</div>
-			</div>
+			</div> #}
 			<div class="footer">
-				<a href="#" class="footer-logo"><img src="{{ asset('img/banner-green.png') }}"/></a>
+				<a href="/" class="footer-logo"><img src="{{ asset('img/banner-green.png') }}"/></a>
 				<div class="footer-flex">
 					<div class="footer-contact">
 						<h4>Contact</h4>
 						<ul class="contact">
-							<li>Mail :
-								<a href="mailto:peperooniiprod@gmail.com">peperooniiprod@gmail.com</a>
-							</li>
-							<li>Téléphone :
-								<a href="tel:+33789616798">07 89 61 67 98</a>
+							<li>
+								<a href="mailto:atamatoki@gmail.com">Mail</a>
 							</li>
 						</ul>
 					</div>
@@ -85,18 +85,43 @@
 						<h4>Reseaux</h4>
 						<ul class="social-networks">
 							<li>
-								<a href="https://www.instagram.com/pepe_roonii/">
+								<a href="https://open.spotify.com/artist/2BzNGTZcU0rrEmwevE6FFM">
+									<i class="fab fa-spotify"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://music.apple.com/us/artist/atamatoki/1486586364">
+									<i class="fa-solid fa-music"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/channel/UChjjiIV0wQZ4a_9-SEM572A">
+									<i class="fa-brands fa-youtube"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.twitch.tv/atamatoki">
+									<i class="fa-brands fa-twitch"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/atamatoki/">
 									<i class="fab fa-instagram"></i>
 								</a>
 							</li>
 							<li>
-								<a href="https://soundcloud.com/mathis-chenut">
+								<a href="https://soundcloud.com/atama-toki">
 									<i class="fab fa-soundcloud"></i>
 								</a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/mathis.chenut">
-									<i class="fab fa-facebook-f"></i>
+								<a href="https://twitter.com/atama_toki">
+									<i class="fa-brands fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.tiktok.com/@atamatoki">
+									<i class="fa-brands fa-tiktok"></i>
 								</a>
 							</li>
 						</ul>

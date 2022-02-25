@@ -1,0 +1,185 @@
+/*** GENERALITES ***/
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+  background-color: #6FC1A5;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: all .7s;
+}
+
+a:hover {
+    color: #00AC6F;
+    transition: all .7s;
+}
+
+a:visited {
+  border: none;
+  color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+/* Underline transition */
+
+a.nav-animated {
+position: relative;
+color: #fff;
+text-decoration: none;
+}
+a.nav-animated:hover {
+color: #00AC6F;
+}
+a.nav-animated:before {
+content: "";
+position: absolute;
+width: 100%;
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: #00AC6F;
+visibility: hidden;
+-webkit-transform: scaleX(0);
+transform: scaleX(0);
+-webkit-transition: all 0.3s ease-in-out 0s;
+transition: all 0.3s ease-in-out 0s;
+}
+a.nav-animated:hover:before {
+visibility: visible;
+-webkit-transform: scaleX(1);
+transform: scaleX(1);
+}
+
+/*** HEADER ***/
+
+.logo img {
+  width: 80%;
+  margin: 1rem 0;
+}
+
+header {
+  font-size: 1.6rem;
+}
+
+header nav {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  margin: 2rem;
+}
+
+header nav a {
+  margin: 1rem 0;
+  padding: 1rem 0.5rem;
+
+  transition: all 0.7s;
+}
+
+header nav a:hover {
+  border-radius: 30px 10px;
+  color: #fff;
+
+  transform: scale(1.2);
+  transition: all 0.7s;
+}
+
+.header-tab {
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+  width: 100%;
+
+  margin: 1rem 0;
+}
+
+.non-authentificated {
+  display: flex;
+}
+
+.sign-up {
+  padding: 0 2rem;
+  margin: 0 1rem;
+
+  transition: color 0.7s;
+}
+
+.sign-up:hover {
+
+  transition: color 0.7s;
+}
+
+.cart {
+  margin: 0 2rem;
+}
+
+.nav-active {
+  border-radius: 30px 10px;
+}
+
+/*** FOOTER ***/
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-details {
+  width: 20%;
+}
+
+.info-details i {
+  font-size: xx-large;
+  margin: 2rem;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul.social-networks {
+  display: flex;
+  justify-content: space-around;
+  line-height: 4rem;
+}
+
+.social-networks li {
+  margin: 2rem;
+
+  transition: all .7s;
+}
+
+.social-networks li:hover {
+  transform: scale(2);
+
+  transition: all .7s;
+}
+
+.social-networks li a {
+  font-size: 2rem;
+
+  transition: all .7s;
+}
+  
+.social-networks li a:hover {
+  color: #00AC6F;
+  
+  transition: all .7s;
+}
