@@ -8,15 +8,15 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/inscription", name="security_registration")
      */
-    public function registration(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager): Response
+    public function registration(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $manager): Response
     {
         $user = new User();
 
@@ -24,8 +24,7 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $hash = $encoder->encodePassword($user, $user->getPassword());
-
+            $hash = $passwordHasher->hashPassword($user, $user->getPassword());
             $user->setPassword($hash);
 
             $manager->persist($user);
@@ -50,7 +49,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/deconnexion", name="security_logout")
      */
-    public function logout(): Response
+    public function logout()
     {
     }
 }
