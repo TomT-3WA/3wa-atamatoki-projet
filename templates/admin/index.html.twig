@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Atamatoki - Admin
+{% endblock %}
+
+{% block body %}
+	<h1>Bienvenue sur la page Admin !</h1>
+	<a href="/admin/tags" class="btn btn-primary manage-cat">Gérer les tags</a>
+	<a href="/tracks/new" class="btn btn-primary add-track">Ajouter une Track</a>
+	<a href="/admin/users" class="btn btn-primary add-track">Gérer les utilisateurs</a>
+{% endblock %}

@@ -45,7 +45,7 @@
 			<a href="{{ path('atamatoki') }}" class="nav-ata nav-animated">L'artiste</a>
 			<a href="{{ path('contact') }}" class="nav-contact nav-animated">Nous Contacter</a>
 			{% if is_granted('ROLE_ADMIN') %}
-				<a href="{{ path('admin')}}" class="nav-admin nav-animated">Page Admin</a>
+				<a href="{{ path('admin_home')}}" class="nav-admin nav-animated">Page Admin</a>
 			{% endif %}
 		</nav>
 	</header>

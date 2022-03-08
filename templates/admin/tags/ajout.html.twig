@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Ajout d'une catégorie</h1>
+	<a href="{{ path('admin_home') }}" class="btn btn-secondary">Annuler</a>
+	{{ form_start(formAjoutTag) }}
+	{{ form_widget(formAjoutTag) }}
+	<button type="submit" class="btn btn-primary">
+		Ajouter la catégorie
+	</button>
+	{{ form_end(formAjoutTag) }}
+{% endblock body %}

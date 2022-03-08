@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	{{ form_start(createForm) }}
+	<div class="mb-3">
+		<label class="form-label">Titre</label>
+		{{ form_widget(createForm.title) }}
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Durée de la track</label>
+		{{ form_widget(createForm.duration) }}
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Fichier Son</label>
+		{{ form_widget(createForm.file, {'attr': {'class': 'form-control'}}) }}
+	</div>
+	<div class="mb-3">
+		{{ form_label(createForm.image) }}
+		{{ form_widget(createForm.image, {'attr': {'class': 'form-control'}}) }}
+	</div>
+	<div class="mb-3">
+		{{ form_widget(createForm.tags, {'attr': {'placeholder': 'Tags de la piste'}}) }}
+	</div>
+	<button type="submit" class="btn btn-success">
+		{% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+			Ajouter la Track
+		{% endif %}
+	</button>
+	{{ form_end(createForm) }}
+
+{% endblock body %}

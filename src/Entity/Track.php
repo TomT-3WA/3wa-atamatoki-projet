@@ -6,6 +6,8 @@ use App\Repository\TrackRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TrackRepository::class)
@@ -31,6 +33,12 @@ class Track
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Image(mimeTypes={ "image/png", "image/jpg", "image/jpeg", "image/gif" })
+     * @Assert\Image(allowSquare = true)
+     * @Assert\Image(minWidth = 52)
+     * @Assert\Image(maxWidth = 1080)
+     * @Assert\Image(minHeight = 52)
+     * @Assert\Image(maxHeight = 1080)
      */
     private $image;
 
@@ -41,11 +49,16 @@ class Track
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(mimeTypes={ "audio/mpeg", "audio/wav", "audio/x-wav", "application/octet-stream" })
+     * @Assert\File(maxSize = "32768k")
+     * @Assert\Valid()
+     * @var UploadedFile
      */
     private $file;
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="tracks")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $tags;
 

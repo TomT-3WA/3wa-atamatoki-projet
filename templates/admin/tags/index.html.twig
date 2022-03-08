@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les tags
+{% endblock %}
+
+{% block body %}
+	<h1>Gérer les catégories</h1>
+	<a href="{{ path('admin_home') }}" class="btn btn-secondary">Retour</a>
+	<a href="{{ path('admin_tags_ajout') }}" class="btn btn-primary">Ajouter un tag</a>
+	<table class="table striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for tag in tags %}
+				<tr>
+					<td>{{tag.id}}</td>
+					<td>{{tag.title}}</td>
+					<td class="text-center">
+						<a href="{{ path('admin_tags_edit', {id: tag.id}) }}" class="btn btn-primary">Modifier</a>
+						<a href="{{ path('admin_tags_delete', {id: tag.id}) }}" class="btn btn-danger">Supprimer</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -25,11 +25,6 @@ class Tag
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Track::class, inversedBy="tags")
      */
     private $tracks;
@@ -56,18 +51,6 @@ class Tag
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Track[]
      */
@@ -90,5 +73,10 @@ class Tag
         $this->tracks->removeElement($track);
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }
