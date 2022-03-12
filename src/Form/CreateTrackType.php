@@ -22,7 +22,8 @@ class CreateTrackType extends AbstractType
             ->add('tags', EntityType::class, array(
                 'class' => Tag::class,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
+                'allow_add' => true
             ));
     }
 

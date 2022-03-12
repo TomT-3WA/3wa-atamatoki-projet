@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Track;
+use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Form\CreateTrackType;
 use App\Repository\TrackRepository;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
@@ -62,12 +66,14 @@ class HomeController extends AbstractController
                 $track->setCreatedAt(new \DateTimeImmutable());
             }
             // Upload du fichier de musique
-            $uploadSong = $track->getFile();
+            // $uploadSong = $track->getFile();
+            $uploadSong = $form->get('file')->getData();
             $uploadSongName = md5(uniqid()) . '.' . $uploadSong->guessExtension();
             $uploadSong->move($this->getParameter('upload_directory'), $uploadSongName);
             $track->setFile($uploadSongName);
             // Upload du fichier image
-            $uploadImage = $track->getImage();
+            // $uploadImage = $track->getImage();
+            $uploadImage = $form->get('image')->getData();
             $uploadImageName = md5(uniqid()) . '.' . $uploadImage->guessExtension();
             $uploadImage->move($this->getParameter('upload_directory'), $uploadImageName);
             $track->setImage($uploadImageName);
@@ -84,6 +90,50 @@ class HomeController extends AbstractController
             'track' => $track,
             'createForm' => $form->createView(),
             'editMode' => $track->getId() !== null
+        ]);
+    }
+
+    /**
+     * @Route("/tracks/{id}/delete", name="track_delete")
+     * @param Track $track
+     * @return RedirectResponse
+     */
+    public function delete(Track $track, ManagerRegistry $doctrine): RedirectResponse
+    {
+        $manager = $doctrine->getManager();
+        $manager->remove($track);
+        $manager->flush();
+
+        return $this->redirectToRoute("tracks");
+    }
+
+    /**
+     * @Route("/tracks/{id}", name="tracks_show")
+     */
+    public function tracks_show(Track $track, Request $request, ManagerRegistry $doctrine)
+    {
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTimeImmutable())
+                ->setTrack($track);
+
+            $manager = $doctrine->getManager();
+            $manager->persist($comment);
+            $manager->flush();
+
+            return $this->redirectToRoute('tracks_show', ['id' => $track->getId()]);
+        }
+
+        // dd($track->getTags());
+
+        return $this->render('home/tracks-show.html.twig', [
+            'track' => $track,
+            'commentForm' => $form->createView()
         ]);
     }
 

@@ -24,7 +24,8 @@ class Tag
      */
     private $title;
 
-    /**
+    /** 
+     * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\ManyToMany(targetEntity=Track::class, inversedBy="tags")
      */
     private $tracks;

@@ -56,7 +56,8 @@ class Track
      */
     private $file;
 
-    /**
+    /** 
+     * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="tracks")
      * @ORM\JoinColumn(nullable=false)
      */

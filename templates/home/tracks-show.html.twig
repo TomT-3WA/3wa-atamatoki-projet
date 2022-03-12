@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Atamatoki - Track
+{% endblock %}
+
+{% block body %}
+	<img src="{{ asset('/uploads/'~track.image) }}" alt="Image de la piste" width="300">
+	<div>
+		<h1>{{ track.title }}</h1>
+        <div class="row">
+        {% for tag in track.tags %}
+            {{ tag.title }}
+		{% endfor %}
+        </div>
+	</div>
+	<h3>{{ track.duration }}</h3>
+	<audio src="{{ asset('/uploads/'~track.file) }}" controls></audio>
+	<div>
+		<a href="#">
+			<i class="fas fa-share-square"></i>
+		</a>
+	</div>
+	<div class="browse-tracks-createdAt">
+		Publié le
+		{{ track.createdAt | date('d/m/Y') }}
+		à
+		{{ track.createdAt | date('H:i') }}
+		<br>
+		avec ces Tags
+        <div class="row">
+        {% for tag in track.tags %}
+            {{ tag.title }}
+		{% endfor %}
+        </div>
+		{# <a href="#">{{ track.tags.title }}</a> #}
+        {# {% for tag in track.tags %}
+			<div class="row">
+            {{ tag.title }}
+			</div>
+		{% endfor %} #}
+	</div>
+
+	{# <section class="comments">
+		<h1>Commentaires ({{ track.comments | length }})</h1>
+		{% for comment in track.comments %}
+			<div class="comment">
+				<div class="row">
+					<div class="col-3">
+						{{ comment.author }}
+						(<small>{{ comment.createdAt | date('d/m/Y à H:i')  }}</small>)
+					</div>
+					<div class="col">
+						{{ comment.content | raw }}
+					</div>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="col">
+							<button class="btn btn-danger">
+								<a href="{{ path('comment_delete', {'id': comment.id}) }}" onclick="return confirm('Attention ! Cette action va supprimer le commentaire')">Supprimer</a>
+							</button>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+		<hr>
+		{% if app.user %}
+			{{ form_start(commentForm) }}
+			{{ form_row(commentForm.author, {'attr': {'placeholder': 'Votre nom'}}) }}
+			{{ form_row(commentForm.content, {'attr': {'placeholder': 'Votre commentaires'}}) }}
+			<button type="submit" class="btn-signin">Commenter</button>
+			{{ form_end(commentForm) }}
+		{% else %}
+			<h2>Connectez-vous pour commenter !</h2>
+			<a type="submit" class="btn-signin" href="{{ path('security_login') }}">
+				Se connecter
+			</a>
+		{% endif %}
+	</section> #}
+
+{% endblock body %}
