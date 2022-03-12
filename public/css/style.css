@@ -23,3 +23,25 @@ form div label {
     width: 50%;
     margin: 1rem;
 }
+
+/*** TRACKS GALLERY ***/
+
+.tracks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.tracks:hover .track-unique {
+    filter: grayscale(1);
+}
+
+.tracks:hover {
+    .track-unique {
+        filter: grayscale(0);
+    }
+}
+
+.col.gallery.track {
+    flex: 1 1 25%;
+}

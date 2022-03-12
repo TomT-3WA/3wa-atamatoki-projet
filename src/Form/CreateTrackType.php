@@ -23,7 +23,6 @@ class CreateTrackType extends AbstractType
                 'class' => Tag::class,
                 'multiple' => true,
                 'expanded' => true,
-                'allow_add' => true
             ));
     }
 
