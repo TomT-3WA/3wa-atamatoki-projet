@@ -154,6 +154,22 @@ header nav a:hover {
   justify-content: space-around;
 }
 
+.social-arrow-down {
+  font-size: 3rem;
+}
+
+#socials-details ul li {
+display: none;
+
+transition: all .7s;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+
+  transition: all .3s;
+}
+
 ul.social-networks {
   display: flex;
   justify-content: space-around;
@@ -162,13 +178,13 @@ ul.social-networks {
 
 .social-networks li {
   margin: 2rem;
-
+  
   transition: all .7s;
 }
 
 .social-networks li:hover {
   transform: scale(2);
-
+  
   transition: all .7s;
 }
 

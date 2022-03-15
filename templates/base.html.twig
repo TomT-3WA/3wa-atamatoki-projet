@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" content="Le site professionel de Atamatoki : Beatmaker, Producteur, Auteur-Compositeur">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>
 			{% block title %}Bienvenue sur le site d'Atamatoki!
 			{% endblock %}
@@ -16,6 +18,8 @@
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/base-style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css' integrity='sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==' crossorigin='anonymous'/>
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css' integrity='sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==' crossorigin='anonymous'/>
 	</head>
 	<body>
 	<header>
@@ -53,23 +57,6 @@
 			{% block body %}{% endblock %}
 		</div>
 		<footer>
-			{# <div class="info">
-				<div class="info-details">
-					<i class="fab fa-paypal"></i>
-					<h3>Paiement Securisé</h3>
-					<p>Chaque paiement s'effectue de manière sécurisée par Paypal. Vos données resteront confidentielles.</p>
-				</div>
-				<div class="info-details">
-					<i class="fas fa-arrow-circle-down"></i>
-					<h3>Téléchargement Immédiat</h3>
-					<p>Une fois la licence achetée, un lien exclusif vous est délivré pour télécharger instantanément la production.</p>
-				</div>
-				<div class="info-details">
-					<i class="fa-solid fa-file-waveform"></i>
-					<h3>Instrumentales De Haute-Qualité</h3>
-					<p>Chaque instrumentale est délivrée avec la meilleure qualité de son et un mixage travaillé, idéal tant pour travailler en studio que chez soi.</p>
-				</div>
-			</div> #}
 			<div class="footer">
 				<a href="/" class="footer-logo"><img src="{{ asset('img/banner-green.png') }}"/></a>
 				<div class="footer-flex">
@@ -83,51 +70,60 @@
 					</div>
 					<div class="footer-social">
 						<h4>Reseaux</h4>
-						<ul class="social-networks">
-							<li>
-								<a href="https://open.spotify.com/artist/2BzNGTZcU0rrEmwevE6FFM">
-									<i class="fab fa-spotify"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://music.apple.com/us/artist/atamatoki/1486586364">
-									<i class="fa-solid fa-music"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.youtube.com/channel/UChjjiIV0wQZ4a_9-SEM572A">
-									<i class="fa-brands fa-youtube"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.twitch.tv/atamatoki">
-									<i class="fa-brands fa-twitch"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.instagram.com/atamatoki/">
-									<i class="fab fa-instagram"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://soundcloud.com/atama-toki">
-									<i class="fab fa-soundcloud"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/atama_toki">
-									<i class="fa-brands fa-twitter"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.tiktok.com/@atamatoki">
-									<i class="fa-brands fa-tiktok"></i>
-								</a>
-							</li>
-						</ul>
+						<a class="social-arrow-down" id="social-arrow-down">
+							<i class="fa-solid fa-arrow-down" id="arrow"></i>
+						</a>
+						<div id="socials-details">
+							<ul class="social-networks">
+								<li>
+									<a href="https://open.spotify.com/artist/2BzNGTZcU0rrEmwevE6FFM">
+										<i class="fab fa-spotify"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://music.apple.com/us/artist/atamatoki/1486586364">
+										<i class="fa-solid fa-music"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.youtube.com/channel/UChjjiIV0wQZ4a_9-SEM572A">
+										<i class="fa-brands fa-youtube"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.twitch.tv/atamatoki">
+										<i class="fa-brands fa-twitch"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/atamatoki/">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://soundcloud.com/atama-toki">
+										<i class="fab fa-soundcloud"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://twitter.com/atama_toki">
+										<i class="fa-brands fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.tiktok.com/@atamatoki">
+										<i class="fa-brands fa-tiktok"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js' integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==' crossorigin='anonymous'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js' integrity='sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==' crossorigin='anonymous'></script>
+		<script src="{{ asset('js/script.js') }}"></script>
 	</body>
 </html>

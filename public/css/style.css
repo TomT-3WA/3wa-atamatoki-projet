@@ -32,16 +32,21 @@ form div label {
     flex-direction: row;
 }
 
-.tracks:hover .track-unique {
-    filter: grayscale(1);
-}
-
-.tracks:hover {
-    .track-unique {
-        filter: grayscale(0);
-    }
-}
 
 .col.gallery.track {
     flex: 1 1 25%;
+
+    transition: all .7s;
+}
+
+.col.gallery.track:hover {
+    transform: scale(1.15);
+
+    transition: all .7s;
+}
+
+/*** Slider ***/
+
+.details figure a img {
+    margin: auto;
 }
