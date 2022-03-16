@@ -27,9 +27,10 @@ form div label {
 /*** TRACKS GALLERY ***/
 
 .tracks {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 
@@ -37,6 +38,10 @@ form div label {
     flex: 1 1 25%;
 
     transition: all .7s;
+}
+
+.col.gallery.track a img {
+    margin: 1rem;
 }
 
 .col.gallery.track:hover {
@@ -49,4 +54,77 @@ form div label {
 
 .details figure a img {
     margin: auto;
+    width: 75%;
 }
+
+audio {
+    width: 75%;
+}
+
+/*******************************************************************************
+********************************* RESPONSIVE ***********************************
+*******************************************************************************/
+
+/*** Mobile Mini ***/
+
+@media screen and (max-width: 650px) {
+    header nav {
+        flex-direction: column;
+    }
+}
+
+/*** Mobile Paysage ***/
+
+
+@media screen and (min-width: 650px) {
+    a.logo img {
+        width: 50%;
+    }
+
+    .details figure a img {
+        width: 90%;
+    }
+
+    .tracks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/*** Tablet ***/
+
+@media screen and (min-width: 768px) {
+
+    a.logo img {
+        width: 35%;
+    }
+
+    header nav {
+        flex-direction: row;
+    }
+
+    audio {
+        width: 90%;
+    }
+}
+
+/*** Footer Flex ***/
+
+@media screen and (max-width: 1024px) {
+    .footer-flex {
+        flex-direction: column;
+    }
+}
+
+/*** Desktop ***/
+
+@media screen and (min-width: 1024px) {
+    .footer-flex {
+        flex-direction: row;
+    }
+
+    .tracks {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
