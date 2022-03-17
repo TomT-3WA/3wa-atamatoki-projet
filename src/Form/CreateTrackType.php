@@ -18,12 +18,7 @@ class CreateTrackType extends AbstractType
             ->add('title')
             ->add('duration')
             ->add('image', FileType::class, array('data_class' => null))
-            ->add('file', FileType::class, array('data_class' => null))
-            ->add('tags', EntityType::class, array(
-                'class' => Tag::class,
-                'multiple' => true,
-                'expanded' => true,
-            ));
+            ->add('file', FileType::class, array('data_class' => null));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

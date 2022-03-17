@@ -26,22 +26,9 @@
 		{{ track.createdAt | date('d/m/Y') }}
 		à
 		{{ track.createdAt | date('H:i') }}
-		<br>
-		avec ces Tags
-        <div class="row">
-        {% for tag in track.tags %}
-            {{ tag.title }}
-		{% endfor %}
-        </div>
-		{# <a href="#">{{ track.tags.title }}</a> #}
-        {# {% for tag in track.tags %}
-			<div class="row">
-            {{ tag.title }}
-			</div>
-		{% endfor %} #}
 	</div>
 
-	{# <section class="comments">
+	<section class="comments">
 		<h1>Commentaires ({{ track.comments | length }})</h1>
 		{% for comment in track.comments %}
 			<div class="comment">
@@ -72,10 +59,10 @@
 			{{ form_end(commentForm) }}
 		{% else %}
 			<h2>Connectez-vous pour commenter !</h2>
-			<a type="submit" class="btn-signin" href="{{ path('security_login') }}">
+			<a type="submit" class="btn btn-primary" href="{{ path('security_login') }}">
 				Se connecter
 			</a>
 		{% endif %}
-	</section> #}
+	</section>
 
 {% endblock body %}

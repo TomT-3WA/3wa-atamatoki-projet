@@ -119,6 +119,10 @@ audio {
 /*** Desktop ***/
 
 @media screen and (min-width: 1024px) {
+    a.logo img {
+        width: 20%;
+    }
+
     .footer-flex {
         flex-direction: row;
     }

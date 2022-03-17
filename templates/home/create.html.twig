@@ -19,9 +19,6 @@
 		{{ form_label(createForm.image) }}
 		{{ form_widget(createForm.image, {'attr': {'class': 'form-control'}}) }}
 	</div>
-	<div class="mb-3">
-		{{ form_widget(createForm.tags, {'attr': {'placeholder': 'Tags de la piste'}}) }}
-	</div>
 	<button type="submit" class="btn btn-success">
 		{% if editMode %}
 			Enregistrer les modifications
