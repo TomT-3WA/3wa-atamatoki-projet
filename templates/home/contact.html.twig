@@ -4,6 +4,22 @@
 
 {% block body %}
 
-{{ form_start(ContactForm) }}
+{{ form_start(contactForm) }}
+<div class="mb-3">
+    <label class="form-label">Nom</label>
+    {{ form_widget(contactForm.nom, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    {{ form_widget(contactForm.email, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    <label class="form-label">Message</label>
+    {{ form_widget(contactForm.message, {'attr': {'class': 'form-control'}}) }}
+</div>
+<button type="submit" class="btn btn-success">
+    Envoyer
+</button>
+{{ form_end(contactForm) }}
 
 {% endblock %}

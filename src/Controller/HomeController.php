@@ -66,7 +66,6 @@ class HomeController extends AbstractController
                 $track->setCreatedAt(new \DateTimeImmutable());
             }
             // Upload du fichier de musique
-            // $uploadSong = $track->getFile();
             $uploadSong = $form->get('file')->getData();
             $uploadSongName = md5(uniqid()) . '.' . $uploadSong->guessExtension();
             $uploadSong->move($this->getParameter('upload_directory'), $uploadSongName);
